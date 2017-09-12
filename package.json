@@ -1,0 +1,18 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "async": "*",
+    "aws-sdk": "^2.111.0",
+    "body-parser": "*",
+    "express": "3.1.0",
+    "jade": "*",
+    "mssql": "*",
+    "node-uuid": "*",
+    "ws": "^3.1.0"
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    <body style="margin-right: 325px; margin-left: 325px;">
+        <center>
+                <img src="logo@2x.png" style="
+                                              margin-bottom: 10px; margin-top: 10px; width: 500px;
+                                              height: 150px;
+                                              margin-left: -200px;">
+
+            <div style="
+                        background:transparent url('bg_shape@2x.png');
+                        background-size: 1000px 370px;
+                        background-repeat: no-repeat;
+                        background-position: center">
+
+                <div>
+                    <div style="text-align: left; padding-left: 10px; font-size: 16px">
+                        <p id="label" >ECG started...</p>
+                    </div>
+                    <div>
+                        <img id="gif" src="Start.png" width="704" height="220" style="border-style: solid; border-width: thick;">
+                    </div>
+                </div>
+                <button id="normalButton" type="button" class="btn btn-default btn-sm" style="width: 180px;height: 120px; background-color: aquamarine;">
+                    <span class="glyphicon glyphicon-heart" style="font-size: 40px; color: aliceblue"></span><p></p><p style="font-size: 16px;"> Normal heart beat</p>
+                </button>
+
+                <button id="abnormalButton" type="button" class="btn btn-default btn-sm" style="width: 180px;height: 120px; background-color: coral;">
+                    <span class="glyphicon glyphicon-fire" style="font-size: 40px; color: aliceblue"></span><p></p><p style="font-size: 16px;"> Cardiac arrest </p>
+                </button>
+                <button id="resetButton" type="button" class="btn btn-default btn-sm" style="width: 180px;height: 120px; background-color: lightgray;">
+                    <span class="glyphicon glyphicon-repeat" style="font-size: 40px; color: aliceblue"></span><p></p><p style="font-size: 16px;"> Reset </p>
+                </button>
+            </div>
+        <hr>
+        <p style="margin-left: -750px;">TSS Hackathon Malaysia & China 2017</p>
+        </center>
+    </body>
+    <script>
+        var gif = document.getElementById('gif');
+
+        function sendData() {
+          var websocket = new WebSocket('ws://rnbridge-env.ivy32ppvnn.ap-southeast-1.elasticbeanstalk.com');
+          websocket.onopen = function() {
+            websocket.send('eoeoeo');
+            websocket.close();
+          };
+        }
+
+        function normal() {
+          gif.src = "NormalHeartbeat.gif";
+          document.getElementById("label").innerHTML = "Normal Heartbeat Pattern";
+        }
+
+        function abnormal() {
+          gif.src = "AbnormalHeartbeat.gif";
+          document.getElementById("label").innerHTML = "Pre-Cardiac Arrest Heartbeat Pattern";
+          sendData();
+        }
+
+        function reset() {
+            gif.src = "start.png";
+            document.getElementById("label").innerHTML = "ECG started...";
+        }
+
+        document.getElementById('normalButton').addEventListener('click', normal);
+        document.getElementById('abnormalButton').addEventListener('click', abnormal);
+        document.getElementById('resetButton').addEventListener('click', reset);
+    </script>
+</html>
