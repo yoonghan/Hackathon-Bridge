@@ -3,8 +3,8 @@
 ## 1. Installation.
 
 1. *(OPTIONAL)* Setup a MSSQL database, table must contain:
-  1. User -> ContactNo, Name
-  2. SpeechText -> UserId, Question, Answer, CreatedDate
+  * User -> ContactNo, Name
+  * SpeechText -> UserId, Question, Answer, CreatedDate
 
 2. *(OPTIONAL)* Change app.js's for connecting into the database:
 ```javascript
