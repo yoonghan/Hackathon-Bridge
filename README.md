@@ -34,3 +34,19 @@ var sqlConfig = {
 
 2. The basic REST api can be test via POSTMAN or curl commands
 --GET -- /api/user
+
+## 3. Running on local machine.
+
+1. Run the command.
+
+```
+npm install
+```
+
+2. Run the command
+
+```
+npm start
+```
+
+3. Check for http://localhost:5000/
